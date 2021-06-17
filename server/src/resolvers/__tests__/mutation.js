@@ -127,4 +127,4 @@ describe('[Mutation]', () => {
     const res = await Mutation.joinEvent({}, {orderId: '42', eventId: 42, userId: 42}, mockContext);
     expect(res).toEqual(true);
   });
-})
+});

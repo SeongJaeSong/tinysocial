@@ -18,7 +18,7 @@ describe('[ReviewAPI.getAttributeOfReview]', () => {
     expect(res).toEqual(null);
   });
 
-  test('throws error if non-existing attributeName is passed ', async () => {
+  test('throws error if non-existing attributeName is passed', async () => {
     mockStore.Review.findOne.mockImplementationOnce(() => {
       throw new Error('Unknown column');
     });
@@ -26,7 +26,7 @@ describe('[ReviewAPI.getAttributeOfReview]', () => {
         toThrow('Unknown column');
   });
 
-  test('returns title if existing attributeName is passed ', async () => {
+  test('returns title if existing attributeName is passed', async () => {
     mockStore.Review.findOne.mockReturnValueOnce({
       title:
         'Yuval Noah Harari is GENIUS',
@@ -35,7 +35,7 @@ describe('[ReviewAPI.getAttributeOfReview]', () => {
     expect(res).toEqual('Yuval Noah Harari is GENIUS');
   });
 
-  test('returns content if existing attributeName is passed ', async () => {
+  test('returns content if existing attributeName is passed', async () => {
     mockStore.Review.findOne.mockReturnValueOnce({
       content:
         'Yuval Noah Harari is GENIUS',
@@ -44,7 +44,7 @@ describe('[ReviewAPI.getAttributeOfReview]', () => {
     expect(res).toEqual('Yuval Noah Harari is GENIUS');
   });
 
-  test('returns isPublic if existing attributeName is passed ', async () => {
+  test('returns isPublic if existing attributeName is passed', async () => {
     mockStore.Review.findOne.mockReturnValueOnce({
       isPublic:
         true,

@@ -20,7 +20,7 @@ describe('[JoinEventAPI.getParticipatedEventIds]', () => {
     expect(res).toEqual(null);
   });
 
-  test('returns all participated evnetIds if existing userId is passed ', async () => {
+  test('returns all participated evnetIds if existing userId is passed', async () => {
     mockStore.EventParticipant.findAll.mockReturnValueOnce([
       {eventId: 10},
       {eventId: 42},
@@ -45,7 +45,7 @@ describe('[JoinEventAPI.getUserIdsOfParticipants]', () => {
     expect(res).toEqual(null);
   });
 
-  test('returns all participated userIds if existing eventId is passed ', async () => {
+  test('returns all participated userIds if existing eventId is passed', async () => {
     mockStore.EventParticipant.findAll.mockReturnValueOnce([
       {userId: 10},
       {userId: 42},

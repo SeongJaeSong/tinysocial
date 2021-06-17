@@ -18,7 +18,7 @@ describe('[UserAPI.getAttributeOfUser]', () => {
     expect(res).toEqual(null);
   });
 
-  test('throws error if non-existing attributeName is passed ', async () => {
+  test('throws error if non-existing attributeName is passed', async () => {
     mockStore.User.findOne.mockImplementationOnce(() => {
       throw new Error('Unknown column');
     });

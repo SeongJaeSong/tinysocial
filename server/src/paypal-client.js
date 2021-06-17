@@ -16,30 +16,30 @@ function client() {
  * This sample uses SandboxEnvironment. In production, use LiveEnvironment.
  */
 function environment() {
-  let clientId = process.env.PAYPAL_CLIENT_ID;
-  let clientSecret = process.env.PAYPAL_CLIENT_SECRET;
+  const clientId = process.env.PAYPAL_CLIENT_ID;
+  const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
 
   return new checkoutNodeJssdk.core.LiveEnvironment(
     clientId, clientSecret
   );
 }
 
-async function prettyPrint(jsonData, pre=""){
+async function prettyPrint(jsonData, pre="") {
   let pretty = "";
   function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   }
-  for (let key in jsonData){
-    if (jsonData.hasOwnProperty(key)){
-      if (isNaN(key))
-        pretty += pre + capitalize(key) + ": ";
-      else
-        pretty += pre + (parseInt(key) + 1) + ": ";
-      if (typeof jsonData[key] === "object"){
+  for (const key in jsonData) {
+    if (jsonData.hasOwnProperty(key)) {
+      if (isNaN(key)) {
+pretty += pre + capitalize(key) + ": ";
+} else {
+pretty += pre + (parseInt(key) + 1) + ": ";
+}
+      if (typeof jsonData[key] === "object") {
         pretty += "\n";
         pretty += await prettyPrint(jsonData[key], pre + "    ");
-      }
-      else {
+      } else {
         pretty += jsonData[key] + "\n";
       }
     }
@@ -47,4 +47,4 @@ async function prettyPrint(jsonData, pre=""){
   return pretty;
 }
 
-module.exports = {client: client, prettyPrint:prettyPrint};
+module.exports = {client: client, prettyPrint: prettyPrint};
